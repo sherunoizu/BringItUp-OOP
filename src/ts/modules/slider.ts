@@ -9,6 +9,8 @@ export class Slider {
   buttons: NodeListOf<HTMLButtonElement>;
   slideIndex: number;
 
+  autoPopupImage: HTMLDivElement;
+
   constructor({pageSelector, buttonsSelector}: ISliderSelectors) {
     this.page = document.querySelector(pageSelector);
     this.slides = Array.from(this.page.children) as HTMLDivElement[];
@@ -25,11 +27,26 @@ export class Slider {
       this.slideIndex = this.slides.length;
     }
 
+    try {
+      this.autoPopupImage.style.opacity = `0`;
+
+      if (currentSlide === 3) {
+        this.autoPopupImage.classList.add('animated');
+        setTimeout(() => {
+          this.autoPopupImage.style.opacity = `1`;
+          this.autoPopupImage.classList.add('slideInUp');
+        }, 3000);
+      } else {
+        this.autoPopupImage.classList.remove('slideInUp');
+      }
+    } catch (e) {}
+
     this.slides.forEach(slide => {
       slide.style.display = `none`;
     });
 
     this.slides[this.slideIndex - 1].style.display = `block`;
+    this.slides[this.slideIndex - 1].classList.add('animated', 'fadeIn');
   }
 
   plusSlides(growth: number) {
@@ -37,6 +54,10 @@ export class Slider {
   }
 
   render() {
+    try {
+      this.autoPopupImage = document.querySelector('.hanson');
+    } catch (e) {}
+
     this.buttons.forEach(button => {
       button.addEventListener('click', () => {
         this.plusSlides(1);
