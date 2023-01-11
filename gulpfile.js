@@ -8,7 +8,7 @@ const dist = './dist/';
 
 gulp.task('copy-html', () => {
   return gulp
-    .src('./src/index.html')
+    .src('./src/*.html')
     .pipe(gulp.dest(dist))
     .pipe(browsersync.stream());
 });
@@ -53,9 +53,9 @@ gulp.task('copy-assets', () => {
 gulp.task('watch', () => {
   browsersync.init({
     server: {
-      baseDir: "./dist",
+      baseDir: './dist/',
       serveStaticOptions: {
-        extensions: ["html"]
+        extensions: ['html']
       }
     },
     port: 4000,
