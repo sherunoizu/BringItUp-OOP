@@ -1,8 +1,10 @@
 import {MainSlider, SmallSlider} from './modules';
 import {VideoPlayer} from './modules';
+import {Difference} from './modules';
 
 import type {ISliderSelectors} from './modules';
 import type {IVideoPlayer} from './modules';
+import type {IDifferenceSelectors} from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
   const mainSliderSelectors = {
@@ -34,11 +36,6 @@ window.addEventListener('DOMContentLoaded', () => {
     activeClass: 'feed__item-active'
   } as ISliderSelectors;
 
-  const mainVideoPlayerSelectors = {
-    triggersSelector: '.showup .play',
-    overlaySelector: '.overlay'
-  } as IVideoPlayer;
-
   const mainSlider = new MainSlider(mainSliderSelectors);
   mainSlider.init();
 
@@ -51,6 +48,24 @@ window.addEventListener('DOMContentLoaded', () => {
   const feedSlider = new SmallSlider(feedSliderSelectors);
   feedSlider.init();
 
+  const mainVideoPlayerSelectors = {
+    triggersSelector: '.showup .play',
+    overlaySelector: '.overlay'
+  } as IVideoPlayer;
+
   const player = new VideoPlayer(mainVideoPlayerSelectors);
   player.init();
+
+  const oldOfficerSelectors = {
+    officerSelector: '.officerold',
+    cardItemsSelector: '.officer__card-item'
+  } as IDifferenceSelectors;
+
+  const newOfficerSelectors = {
+    officerSelector: '.officernew',
+    cardItemsSelector: '.officer__card-item'
+  } as IDifferenceSelectors;
+
+  new Difference(oldOfficerSelectors).init();
+  new Difference(newOfficerSelectors).init();
 });
