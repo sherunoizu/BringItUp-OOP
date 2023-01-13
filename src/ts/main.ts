@@ -1,6 +1,7 @@
 import {MainSlider, SmallSlider} from './modules';
 import {VideoPlayer} from './modules';
 import {Difference} from './modules';
+import {Form} from './modules';
 
 import type {ISliderSelectors} from './modules';
 import type {IVideoPlayer} from './modules';
@@ -68,4 +69,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   new Difference(oldOfficerSelectors).init();
   new Difference(newOfficerSelectors).init();
+
+  new Form('.form').init();
 });

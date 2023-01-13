@@ -7,3 +7,5 @@ export type {IVideoPlayer} from './videoPlayer';
 
 export {Difference} from './difference';
 export type {IDifferenceSelectors} from './difference';
+
+export { Form } from './form';
