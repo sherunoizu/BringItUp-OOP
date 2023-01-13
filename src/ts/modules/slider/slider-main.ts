@@ -2,8 +2,8 @@ import {Slider} from './slider';
 import type {ISliderSelectors} from './slider';
 
 export class MainSlider extends Slider {
-  constructor({pageSelector, buttonsSelector}: ISliderSelectors) {
-    super({pageSelector, buttonsSelector});
+  constructor({containerSelector, buttonsSelector}: ISliderSelectors) {
+    super({containerSelector, buttonsSelector});
   }
 
   showSlides(currentSlide: number) {
@@ -41,7 +41,7 @@ export class MainSlider extends Slider {
     this.showSlides((this.slideIndex += growth));
   }
 
-  render() {
+  init() {
     try {
       this.autoPopupImage = document.querySelector('.hanson');
     } catch (e) {}
