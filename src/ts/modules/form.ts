@@ -104,7 +104,7 @@ export class Form {
       input.addEventListener('blur', createMask);
     });
   }
-
+//
   init() {
     this.checkMailInputs();
     this.initMask();
