@@ -1,21 +1,9 @@
-export interface ISliderSelectors {
-  pageSelector: string;
-  buttonsSelector: string;
-}
+import {Slider} from './slider';
+import type {ISliderSelectors} from './slider';
 
-export class Slider {
-  page: HTMLDivElement;
-  slides: HTMLDivElement[];
-  buttons: NodeListOf<HTMLButtonElement>;
-  slideIndex: number;
-
-  autoPopupImage: HTMLDivElement;
-
+export class MainSlider extends Slider {
   constructor({pageSelector, buttonsSelector}: ISliderSelectors) {
-    this.page = document.querySelector(pageSelector);
-    this.slides = Array.from(this.page.children) as HTMLDivElement[];
-    this.buttons = document.querySelectorAll(buttonsSelector);
-    this.slideIndex = 1;
+    super({pageSelector, buttonsSelector});
   }
 
   showSlides(currentSlide: number) {

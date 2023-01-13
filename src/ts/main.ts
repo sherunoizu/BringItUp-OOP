@@ -1,4 +1,4 @@
-import {Slider} from './modules';
+import { MainSlider } from './modules';
 import {VideoPlayer} from './modules';
 
 import type {ISliderSelectors} from './modules';
@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     overlaySelector: '.overlay'
   } as IVideoPlayer;
 
-  const mainSlider = new Slider(mainSliderSelectors);
+  const mainSlider = new MainSlider(mainSliderSelectors);
 
   mainSlider.render();
 
