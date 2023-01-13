@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
     buttonsSelector: '.next'
   } as ISliderSelectors;
 
-  const videoPlayerSelectors = {
+  const mainVideoPlayerSelectors = {
     triggersSelector: '.showup .play',
     overlaySelector: '.overlay'
   } as IVideoPlayer;
@@ -19,6 +19,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   mainSlider.render();
 
-  const player = new VideoPlayer(videoPlayerSelectors);
+  const player = new VideoPlayer(mainVideoPlayerSelectors);
   player.init();
 });
