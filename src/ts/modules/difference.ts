@@ -9,9 +9,11 @@ export class Difference {
   counter: number;
 
   constructor({officerSelector, cardItemsSelector}: IDifferenceSelectors) {
-    this.officer = document.querySelector(officerSelector);
-    this.cardItems = this.officer.querySelectorAll(cardItemsSelector);
-    this.counter = 0;
+    try {
+      this.officer = document.querySelector(officerSelector);
+      this.cardItems = this.officer.querySelectorAll(cardItemsSelector);
+      this.counter = 0;
+    } catch (e) {}
   }
 
   bindTriggers() {
@@ -35,7 +37,9 @@ export class Difference {
   }
 
   init() {
-    this.hideItems();
-    this.bindTriggers();
+    try {
+      this.hideItems();
+      this.bindTriggers();
+    } catch (e) {}
   }
 }

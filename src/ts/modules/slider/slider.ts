@@ -32,7 +32,10 @@ export class Slider {
     autoplay = false
   }: ISliderSelectors) {
     this.container = document.querySelector(containerSelector);
-    this.slides = Array.from(this.container.children) as HTMLDivElement[];
+    try {
+      this.slides = Array.from(this.container.children) as HTMLDivElement[];
+      this.slides = this.slides.filter(slide => slide.tagName != 'BUTTON');
+    } catch (e) {}
     this.buttons = document.querySelectorAll(buttonsSelector);
     this.prevButton = document.querySelector(prevButtonSelector);
     this.nextButton = document.querySelector(nextButtonSelector);
@@ -40,7 +43,5 @@ export class Slider {
     this.animate = animate;
     this.autoplay = autoplay;
     this.slideIndex = 1;
-
-    this.slides = this.slides.filter(slide => slide.tagName != 'BUTTON');
   }
 }

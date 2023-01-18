@@ -43,24 +43,26 @@ export class MainSlider extends Slider {
 
   init() {
     try {
-      this.autoPopupImage = document.querySelector('.hanson');
-    } catch (e) {}
+      try {
+        this.autoPopupImage = document.querySelector('.hanson');
+      } catch (e) {}
 
-    this.buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        this.plusSlides(1);
+      this.buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          this.plusSlides(1);
+        });
+
+        button.parentElement.previousElementSibling.addEventListener(
+          'click',
+          e => {
+            e.preventDefault();
+            this.slideIndex = 1;
+            this.showSlides(this.slideIndex);
+          }
+        );
       });
 
-      button.parentElement.previousElementSibling.addEventListener(
-        'click',
-        e => {
-          e.preventDefault();
-          this.slideIndex = 1;
-          this.showSlides(this.slideIndex);
-        }
-      );
-    });
-
-    this.showSlides(this.slideIndex);
+      this.showSlides(this.slideIndex);
+    } catch (e) {}
   }
 }
