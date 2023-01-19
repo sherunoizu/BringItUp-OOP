@@ -41,11 +41,7 @@ export class MainSlider extends Slider {
     this.showSlides((this.slideIndex += growth));
   }
 
-  init() {
-    try {
-      this.autoPopupImage = document.querySelector('.hanson');
-    } catch (e) {}
-
+  bindTriggers() {
     this.buttons.forEach(button => {
       button.addEventListener('click', () => {
         this.plusSlides(1);
@@ -61,6 +57,31 @@ export class MainSlider extends Slider {
       );
     });
 
-    this.showSlides(this.slideIndex);
+    document.querySelectorAll('.prevmodule').forEach(button => {
+      button.addEventListener('click', e => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.plusSlides(-1);
+      });
+    });
+
+    document.querySelectorAll('.nextmodule').forEach(button => {
+      button.addEventListener('click', e => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.plusSlides(1);
+      });
+    });
+  }
+
+  init() {
+    if (this.container) {
+      try {
+        this.autoPopupImage = document.querySelector('.hanson');
+      } catch (e) {}
+
+      this.showSlides(this.slideIndex);
+      this.bindTriggers();
+    }
   }
 }

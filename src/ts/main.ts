@@ -13,6 +13,11 @@ window.addEventListener('DOMContentLoaded', () => {
     buttonsSelector: '.next'
   } as ISliderSelectors;
 
+  const moduleMainSliderSelectors = {
+    containerSelector: '.moduleapp',
+    buttonsSelector: '.next'
+  } as ISliderSelectors;
+
   const showUpSliderSelectors = {
     containerSelector: '.showup__content-slider',
     prevButtonSelector: '.showup__prev',
@@ -39,6 +44,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const mainSlider = new MainSlider(mainSliderSelectors);
   mainSlider.init();
+
+  const moduleMainSlider = new MainSlider(moduleMainSliderSelectors);
+  moduleMainSlider.init();
 
   const showUpSlider = new SmallSlider(showUpSliderSelectors);
   showUpSlider.init();
