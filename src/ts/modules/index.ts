@@ -9,3 +9,7 @@ export {Difference} from './difference';
 export type {IDifferenceSelectors} from './difference';
 
 export { Form } from './form';
+
+export {ShowInfo} from './showInfo';
+
+export {Download} from './download';
