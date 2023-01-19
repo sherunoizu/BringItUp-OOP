@@ -3,6 +3,7 @@ import {VideoPlayer} from './modules';
 import {Difference} from './modules';
 import {Form} from './modules';
 import {ShowInfo} from './modules';
+import {Download} from './modules';
 
 import type {ISliderSelectors} from './modules';
 import type {IVideoPlayer} from './modules';
@@ -87,4 +88,6 @@ window.addEventListener('DOMContentLoaded', () => {
   new Form('.form').init();
 
   new ShowInfo('.plus__content').init();
+
+  new Download('.download').init();
 });
