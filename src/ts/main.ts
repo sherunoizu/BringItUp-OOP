@@ -62,8 +62,13 @@ window.addEventListener('DOMContentLoaded', () => {
     overlaySelector: '.overlay'
   } as IVideoPlayer;
 
-  const player = new VideoPlayer(mainVideoPlayerSelectors);
-  player.init();
+  const secondVideoPlayerSelectors = {
+    triggersSelector: '.module__video-item .play',
+    overlaySelector: '.overlay'
+  } as IVideoPlayer;
+
+  new VideoPlayer(mainVideoPlayerSelectors).init();
+  new VideoPlayer(secondVideoPlayerSelectors).init();
 
   const oldOfficerSelectors = {
     officerSelector: '.officerold',
