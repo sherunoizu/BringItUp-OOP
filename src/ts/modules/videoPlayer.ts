@@ -28,6 +28,7 @@ export class VideoPlayer {
       width: '100%',
       videoId: url
     });
+    this.overlay.style.display = `flex`;
   }
 
   onPlayerStateChange() {
